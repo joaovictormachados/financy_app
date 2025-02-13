@@ -1,3 +1,5 @@
+import 'package:financy_app/features/onboarding/onboarding_page.dart';
+import 'package:financy_app/features/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -8,11 +10,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text("Home"),
-        )
-      ),
+      debugShowCheckedModeBanner: false,
+      home: OnboardingPage()
     );
   }
 }
