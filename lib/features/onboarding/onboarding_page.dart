@@ -1,6 +1,5 @@
-import 'dart:math';
 
-import 'package:financy_app/common/widgets/MultiTextButton.dart';
+import 'package:financy_app/common/widgets/multi_text_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:financy_app/common/constants/app_colors.dart';
@@ -12,7 +11,7 @@ class OnboardingPage extends StatelessWidget{
 
 
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
@@ -22,18 +21,23 @@ class OnboardingPage extends StatelessWidget{
             Expanded(
               child: 
                 Container(
-                  color:AppColors.iceWhite,
-                  child: Image.asset("assets/images/Brazuca Browsing.png"),
+                //color: AppColors.iceWhite,
+                child: Image.asset(
+                  "assets/images/tickIcon.png",
+                  width: 250,  // Defina um tamanho fixo
+                  height: 200, // Defina um tamanho fixo
                 ),
+              ),
             ),
             Container(
               color:AppColors.white,
             ),
-            Text('Spend Smarter',
+            Text('Welcome!',
               style: AppTextStyles.mediumText.copyWith(
                 color: AppColors.greenLighTwo),
             ),  
-            Text('Save More!',
+            Text('We help you analyze tick tests!',
+              textAlign: TextAlign.center,
               style: AppTextStyles.mediumText.copyWith(
                 color: AppColors.greenLighTwo),
             ),  
@@ -41,7 +45,9 @@ class OnboardingPage extends StatelessWidget{
               padding: const EdgeInsets.all(16),
               child: PrimaryButton(
                 text: 'Get Started',
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.pushNamed(context, '/SignUp');
+                },
                 ),
             ),
             MultiTextButton(
@@ -57,12 +63,14 @@ class OnboardingPage extends StatelessWidget{
                   ),
                 ), 
               ],
-              onPressed: () => debugPrint('message'),
+              onPressed: () {
+                debugPrint('Log in clicked');
+                Navigator.pushNamed(context, '/HomePage');
+              },
             ),
             SizedBox(height: 40.0,)
           ],
-
-            ),
+        ),
       ),
     );
   }
