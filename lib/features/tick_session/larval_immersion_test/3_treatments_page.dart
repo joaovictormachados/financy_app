@@ -1,5 +1,5 @@
 import 'package:financy_app/common/constants/app_colors.dart';
-import 'package:financy_app/features/larval_immersion_test/4_add_treament_page.dart';
+import 'package:financy_app/features/tick_session/larval_immersion_test/4_add_treament_page.dart';
 import 'package:flutter/material.dart';
 import 'package:financy_app/common/widgets/bottomNavigationBar.dart';
 

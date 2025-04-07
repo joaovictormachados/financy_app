@@ -1,5 +1,5 @@
 import 'package:financy_app/common/constants/app_colors.dart';
-import 'package:financy_app/features/larval_immersion_test/5_video_protocol_page.dart';
+import 'package:financy_app/features/tick_session/larval_immersion_test/5_video_protocol_page.dart';
 import 'package:flutter/material.dart';
 
 class AddTreatmentPage extends StatelessWidget {

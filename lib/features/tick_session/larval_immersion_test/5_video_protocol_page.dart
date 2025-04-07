@@ -1,4 +1,5 @@
 import 'package:financy_app/common/constants/app_colors.dart';
+import 'package:financy_app/features/tick_session/larval_immersion_test/6_camera_page.dart';
 import 'package:flutter/material.dart';
 
 class VideoProtocolPage extends StatelessWidget {
@@ -71,7 +72,16 @@ class VideoProtocolPage extends StatelessWidget {
             // Botão "Iniciar captura de vídeos"
             ElevatedButton(
               onPressed: () {
-                // Navegar para a próxima etapa (protocolo de captura de vídeos)
+                // Navegar para a página de câmera
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CameraPage(
+                      testName: testName,
+                      treatmentName: treatmentName,
+                    ),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.greenLighTwo, // Cor do botão

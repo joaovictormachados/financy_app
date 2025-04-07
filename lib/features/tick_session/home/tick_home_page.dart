@@ -1,8 +1,9 @@
-import 'package:financy_app/features/larval_immersion_test/1_larval_immersion_test_page.dart';
+import 'package:financy_app/common/constants/app_colors.dart';
+import 'package:financy_app/features/tick_session/larval_immersion_test/1_larval_immersion_test_page.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class TickHomePage extends StatelessWidget {
+  const TickHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +36,7 @@ class HomePage extends StatelessWidget {
             // Botão 1: Teste de Imersão de Larvas
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LarvalImmersionTestPage(),
-                  ),
+                Navigator.pushNamed(context, '/larval_immersion_test'
                 );
               },
               child: Container(
@@ -85,7 +82,7 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     Image.asset(
-                      'assets/images/pacote_larval.png', // Caminho do ícone
+                      'assets/images/imersao_larval.png', // Caminho do ícone
                       width: 40,
                       height: 40,
                     ),
@@ -160,8 +157,9 @@ class HomePage extends StatelessWidget {
         onPressed: () {
           // Ação do botão flutuante
         },
-        backgroundColor: Colors.green,
-        child: const Icon(Icons.add),
+        backgroundColor: AppColors.greenLighTwo,
+        child: const Icon(Icons.add,
+          color: Colors.white,)// Ícone branco),
       ),
     );
   }

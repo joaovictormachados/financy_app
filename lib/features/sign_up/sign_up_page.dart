@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:financy_app/common/constants/app_colors.dart';
 import 'package:financy_app/common/constants/app_text_styles.dart';
 import 'package:financy_app/common/constants/utils/uppercase_text_formatter.dart';
+import 'package:financy_app/common/constants/utils/validator.dart';
 import 'package:financy_app/common/widgets/custom_password_form_field.dart';
 import 'package:financy_app/common/widgets/multi_text_button.dart';
 import 'package:financy_app/common/widgets/custom_text_form_field.dart';
@@ -21,10 +22,11 @@ import 'package:flutter/material.dart';
 
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
+  final _passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Align(
         child: Column(
@@ -57,41 +59,27 @@ class _SignUpPageState extends State<SignUpPage> {
                   textInputAction: TextInputAction.next,
                   inputFormatters: [UpperCaseTextInputFormatter(),
                   ],
-                  validator: (value) {
-                    if (value != null && value.isEmpty){
-                      return "O campo Nome nao pode ser vazio";
-                    }
-                    return null;  //return null se o valor for valido
-                  } ,
+                  validator: Validator.validateName,
                 ),
 
                 CustomTextFormField(
                   hintText: "Enter your email here",
                   labelText: "Your Email",
                   textInputAction: TextInputAction.next,
-                  validator: (value) {
-                    if (value != null && value.isEmpty){
-                      return "O campo email nao pode ser vazio";
-                    }
-                    return null;
-                  } ,
+                  validator: Validator.validateEmail,
                 ),
+
                 CustomPasswordFormField(
                   labelText: "Enter your password",
                   hintText: "Password",
                   helperText: "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
-                  
-                  validator: (value) {
-                    if (value != null && value.isEmpty){
-                      return "O campo senha nao pode ser vazio";
-                    }
-                    return null;
-                  } ,
+                  controller: _passwordController,
+                  validator: Validator.validatePassword,
                 ),
                 CustomPasswordFormField(
                   labelText: "Confirm your password",
                   hintText: "Password",
-                  
+                  validator: (value) => Validator.validateConfirmPassword(value,_passwordController.text),
                  
                 ),
               ],
@@ -118,7 +106,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 log(valid.toString());
 
                 debugPrint('Clicou em signup');
-                Navigator.pushNamed(context, '/HomePage');
+                if (valid == true) {Navigator.pushNamed(context, '/HomePage');}
 
                 //Navigator.pushNamed(context, "/HomePage");
               },
@@ -151,4 +139,5 @@ class _SignUpPageState extends State<SignUpPage> {
     ),
     );
   }
+
 }
